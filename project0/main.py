@@ -3,28 +3,33 @@ import numpy as np
 def randomization(n):
     """
     Arg:
-      n - an integer
+      n (int): an integer
     Returns:
-      A - a randomly-generated nx1 Numpy array.
+      A (np.ndarray): a randomly-generated nx1 Numpy array.
     """
     #Your code here
-    raise NotImplementedError
+    A = np.random.rand(n, 1)
+    return A
 
 def operations(h, w):
     """
     Takes two inputs, h and w, and makes two Numpy arrays A and B of size
     h x w, and returns A, B, and s, the sum of A and B.
 
+    
     Arg:
-      h - an integer describing the height of A and B
-      w - an integer describing the width of A and B
+      h (int) : an integer describing the height of A and B
+      w (int) : an integer describing the width of A and B
     Returns (in this order):
-      A - a randomly-generated h x w Numpy array.
-      B - a randomly-generated h x w Numpy array.
-      s - the sum of A and B.
+      A (np.ndarray) : a randomly-generated h x w Numpy array.
+      B (np.ndarray) : a randomly-generated h x w Numpy array.
+      s (np.ndarray) : the sum of A and B.
     """
     #Your code here
-    raise NotImplementedError
+    A = np.random.rand(h, w)
+    B = np.random.rand(h, w)
+    s = A + B
+    return A, B, s
 
 
 def norm(A, B):
@@ -33,13 +38,14 @@ def norm(A, B):
     sum.
 
     Arg:
-      A - a Numpy array
-      B - a Numpy array
+      A (np.ndarray) : a Numpy column array of shape (n, 1)
+      B (np.ndarray) : a Numpy column array of shape (n, 1)
     Returns:
-      s - the L2 norm of A+B.
+      s (float) : the L2 norm of A+B.
     """
     #Your code here
-    raise NotImplementedError
+    s = np.linalg.norm(A + B)
+    return s
 
 
 def neural_network(inputs, weights):
@@ -54,14 +60,18 @@ def neural_network(inputs, weights):
        out - a 1 x 1 NumPy array, representing the output of the neural network
     """
     #Your code here
-    raise NotImplementedError
+    out = np.tanh(np.dot(weights.T, inputs))
+    return out
 
 def scalar_function(x, y):
     """
     Returns the f(x,y) defined in the problem statement.
     """
     #Your code here
-    raise NotImplementedError
+    if x <= y:
+        return x*y
+    else:
+        return x/y
 
 def vector_function(x, y):
     """
@@ -70,3 +80,6 @@ def vector_function(x, y):
     #Your code here
     raise NotImplementedError
 
+
+if __name__ == "__main__":
+    print(randomization(5))
